@@ -1,0 +1,40 @@
+export const en = {
+  langName: 'English',
+  common: { loading: 'Loading...', error: 'An error occurred:' },
+  status: { waiting: 'Waiting for players', in_progress: 'Game in progress' },
+  host: {
+    title: 'Host Panel - Charades',
+    createRoomBtn: 'Create a new room',
+    creatingRoomBtn: 'Creating room...',
+    roomCodeLabel: 'Room Code:',
+    statusLabel: 'Status:',
+    roundLabel: 'Round:',
+    startGameBtn: 'Start Game',
+    startingGameBtn: 'Assigning words...',
+    nextRoundBtn: 'End round / Draw new words',
+    playersListLabel: 'Players',
+    hostSuffix: '(Host)',
+    errCreateRoom: 'Error creating room:',
+    errAddHost: 'Error adding Host:',
+    errNotEnoughWords: 'Not enough words in the pool for this many players!',
+    endGameBtn: 'End Game',
+    restoring: 'Restoring session...'
+  },
+  player: {
+    title: 'Join Game - Charades',
+    codeLabel: 'Room Code:',
+    codePlaceholder: 'e.g. ABCD',
+    nickLabel: 'Your Nickname:',
+    nickPlaceholder: 'e.g. John',
+    joinBtn: 'Join Room',
+    joiningBtn: 'Joining...',
+    roomNotFound: 'No room found with this code.',
+    inRoom: 'You are in room:',
+    welcome: 'Welcome',
+    waitHost: 'Wait for the Host to start the first round...',
+    yourWord: 'Your word is:',
+    leaveRoomBtn: 'Leave Room',
+    restoring: 'Restoring session...',
+    hostEnded: 'The Host has ended the game.'
+  }
+};

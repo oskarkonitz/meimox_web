@@ -18,10 +18,17 @@ export const en = {
     errAddHost: 'Error adding Host:',
     errNotEnoughWords: 'Not enough words in the pool for this many players!',
     endGameBtn: 'End Game',
-    restoring: 'Restoring session...'
+    restoring: 'Restoring session...',
+    joinGameBtn: 'Join game as player',
+    leaveGameBtn: 'Leave game (spectate only)',
+    hostNickPlaceholder: 'Your nickname (e.g. Host)',
+    playingAs: 'Playing as:',
+    yourWord: 'Your word is:',
+    showWord: 'Show word',
+    hideWord: 'Hide word'
   },
   player: {
-    title: 'Join Game - Charades',
+    title: 'Join Game',
     codeLabel: 'Room Code:',
     codePlaceholder: 'e.g. ABCD',
     nickLabel: 'Your Nickname:',

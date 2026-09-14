@@ -111,54 +111,290 @@ export default function PlayerView() {
   if (isRestoring) return <p style={{ padding: '20px' }}>{lang.player.restoring}</p>;
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+    <div style={{ 
+      minHeight: '100vh',       // 100vh (Viewport Height) sprawia, że div zajmuje całą wysokość ekranu.
+      backgroundColor: '#2c3139ff', // Delikatne, jasnoszare/niebieskawe tło, żeby nie było ostro biało.
+      display: 'flex',          // Uruchamiamy Flexboxa...
+      flexDirection: 'column',  // ...i mówimy mu, żeby układał elementy jeden pod drugim (w kolumnie).
+      padding: '20px',          // Margines wewnętrzny, żeby tekst nie przyklejał się do krawędzi telefonu.
+      boxSizing: 'border-box',  // Ważne! Sprawia, że padding wlicza się do rozmiaru, więc strona nie wyjdzie poza ekran (nie będzie paska przewijania).
+      fontFamily: 'sans-serif'  // Prosta czcionka bezszeryfowa.
+    }}>
       
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h1>{lang.player.title}</h1>
-        <div style={{ fontSize: '24px', cursor: 'pointer' }}>
-          <span onClick={() => setLangCode('pl')} style={{ opacity: langCode === 'pl' ? 1 : 0.4, marginRight: '10px' }}>🇵🇱</span>
-          <span onClick={() => setLangCode('en')} style={{ opacity: langCode === 'en' ? 1 : 0.4 }}>🇬🇧</span>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: '20px'
+      }}>
+        <h1 style={{
+            margin: 0,
+            fontSize: 24,
+            color: '#e6dadaff'
+        }}>
+            {!isJoined ? (
+              <h1 style={{ margin: 0, fontSize: 24, color: '#e6dadaff' }}>
+                {lang.player.title}
+              </h1>
+            ) : (
+              <img src="/logo_przezroczyste_biale.png" alt="logo" style={{
+                height: '50px',
+                objectFit: 'contain',
+                backgroundColor: 'transparent'
+              }}/>
+            )}
+        </h1>
+        <div style={{ fontSize: '28px', cursor: 'pointer' }}>
+          <span 
+            onClick={() => setLangCode('pl')} 
+            style={{ 
+              opacity: langCode === 'pl' ? 1 : 0.4,
+              marginRight: '15px',
+              transition: 'opacity 0.2s' 
+            }}
+          >
+            🇵🇱
+          </span>
+          <span 
+            onClick={() => setLangCode('en')} 
+            style={{ 
+              opacity: langCode === 'en' ? 1 : 0.4, 
+              transition: 'opacity 0.2s' 
+            }}
+          >
+            🇬🇧
+          </span>
         </div>
       </div>
 
-      {errorMsg && <p style={{ color: 'red', marginTop: '10px', padding: '10px', backgroundColor: '#fee' }}>{errorMsg}</p>}
+    {errorMsg && (
+        <div style={{ 
+          backgroundColor: '#fee', 
+          color: '#c00', 
+          padding: '12px', 
+          borderRadius: '8px', 
+          textAlign: 'center',
+          marginBottom: '10px'
+        }}>
+            {errorMsg}
+        </div>
+    )}
 
-      {!isJoined && (
-        <form onSubmit={joinRoom} style={{ display: 'flex', flexDirection: 'column', maxWidth: '300px', gap: '10px', marginTop: '20px' }}>
-          <label>{lang.player.codeLabel}</label>
-          <input type="text" placeholder={lang.player.codePlaceholder} maxLength={4} value={inputCode} onChange={(e) => setInputCode(e.target.value)} required style={{ padding: '8px', fontSize: '16px', textTransform: 'uppercase' }} />
-          <label>{lang.player.nickLabel}</label>
-          <input type="text" placeholder={lang.player.nickPlaceholder} value={nickname} onChange={(e) => setNickname(e.target.value)} required style={{ padding: '8px', fontSize: '16px' }} />
-          <button type="submit" disabled={isLoading} style={{ padding: '10px', fontSize: '16px', cursor: 'pointer', marginTop: '10px' }}>
-            {isLoading ? lang.player.joiningBtn : lang.player.joinBtn}
-          </button>
-        </form>
-      )}
+    {!isJoined && (
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            paddingBottom: '40px'
+        }}>
+            <form onSubmit={joinRoom} style={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: '100%',
+                maxWidth: '320px',
+                gap: '16px'
+            }}>
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '6px'
+                }}>
+                    <label style={{
+                        fontSize: '14px',
+                        fontWeight: 'bold',
+                        color: '#fee'
+                    }}>
+                        {lang.player.codeLabel}
+                    </label>
+                    <input
+                        type="text"
+                        placeholder={lang.player.codePlaceholder}
+                        maxLength={4}
+                        value={inputCode}
+                        onChange={(e) => setInputCode(e.target.value)}
+                        required
+                        style={{
+                          padding: '10px',
+                          fontSize: '20px',
+                          textAlign: 'center',
+                          textTransform: 'uppercase',
+                          borderRadius: '10px',
+                          border: '2px solid #d08181ff',
+                          outline: 'none'
+                        }}
+                    />
+                </div>
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '6px'
+                }}>
+                    <label style={{
+                        fontSize: '14px',
+                        fontWeight: 'bold',
+                        color: '#fee'
+                    }}>
+                        {lang.player.nickLabel}
+                    </label>
+                    <input
+                        type="text"
+                        placeholder={lang.player.nickPlaceholder}
+                        value={nickname}
+                        onChange={(e) => setNickname(e.target.value)}
+                        required
+                        style={{
+                          padding: '10px',
+                          fontSize: '20px',
+                          textAlign: 'center',
+                          textTransform: 'uppercase',
+                          borderRadius: '10px',
+                          border: '2px solid #d08181ff',
+                          outline: 'none'
+                        }}
+                    />
+                </div>
+                <button
+                type='submit'
+                disabled={isLoading}
+                style={{
+                  marginTop: '10px',
+                  padding: '14px',
+                  fontSize: '16px',
+                  fontWeight: 'bold',
+                  backgroundColor: isLoading ? '#999' : '#4CAF50',
+                  border: '2px solid white',
+                  borderRadius: '10px',
+                  color: 'white',
+                  cursor: isLoading ? 'not-allowed' : 'pointer',
+                  transition: 'background-color 0.2s'
+                }}>
+                  {isLoading ? lang.player.joiningBtn : lang.player.joinBtn}
+                </button>
+            </form>
+        </div>
+    )}
 
-      {isJoined && roomData.status === 'waiting' && (
-        <div style={{ border: '2px solid gray', padding: '20px', marginTop: '20px' }}>
-          <h2>{lang.player.inRoom} {roomData.code}</h2>
-          <p>{lang.player.welcome} <strong>{playerData.nickname}</strong>!</p>
-          <p style={{ fontStyle: 'italic', color: '#555' }}>{lang.player.waitHost}</p>
-          
-          <button onClick={() => leaveRoom(false)} disabled={isLoading} style={{ marginTop: '20px', padding: '8px 16px', backgroundColor: '#666', color: 'white', border: 'none', cursor: 'pointer' }}>
+    {isJoined && roomData.status === 'waiting' && (
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingBottom: '40px'
+      }}>
+        <div style={{
+          backgroundColor: 'rgba(219, 213, 213, 1)',
+          padding: '30px 20px',
+          borderRadius: '16px',
+          boxShadow: '0 4px 12px rgba(230, 171, 52, 0.54)',
+          textAlign: 'center',
+          width: '100%',
+          maxWidth: '360px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '18px'
+        }}>
+          <h2 style={{margin: 0, color: '#333', fontSize: '20px'}}>
+            {lang.player.inRoom} <br />
+            <span style={{ color: '#4CAF50', fontSize: '32px', letterSpacing: '2px' }}>
+              {roomData.code}
+            </span>
+          </h2>
+
+          <p style={{ margin: 0, fontSize: '18px', color: '#242424ff' }}>
+            {lang.player.welcome} <strong>{playerData.nickname}</strong>
+          </p>
+
+          <div style={{
+            backgroundColor: '#f8f9fa',
+            padding: '10px',
+            borderRadius: '10px',
+            border: '1px dashed #ccc'
+          }}>
+            <p style={{ margin: 0, fontStyle: 'italic', color: '#666' }}>
+              {lang.player.waitHost}
+            </p>
+          </div>
+
+          <button
+            onClick={() => leaveRoom(false)} 
+            disabled={isLoading} 
+            style={{ 
+              marginTop: '10px', 
+              padding: '10px', 
+              fontSize: '16px', 
+              backgroundColor: '#ff4d4d', // Czerwony kolor sygnalizuje akcję destrukcyjną (wyjście)
+              color: 'white', 
+              border: 'none', 
+              borderRadius: '10px',
+              cursor: 'pointer',
+              fontWeight: 'bold'
+            }}>
             {lang.player.leaveRoomBtn}
           </button>
-        </div>
-      )}
 
-      {isJoined && roomData.status === 'in_progress' && (
-        <div style={{ border: '4px solid green', padding: '40px 20px', marginTop: '20px', textAlign: 'center' }}>
-          <h2 style={{ marginBottom: '20px' }}>{lang.player.yourWord}</h2>
-          <h1 style={{ fontSize: '64px', margin: '0', color: 'green', textTransform: 'uppercase' }}>
-            {playerData.current_word || '...'}
-          </h1>
-          
-          <button onClick={() => leaveRoom(false)} disabled={isLoading} style={{ marginTop: '40px', padding: '8px 16px', backgroundColor: '#666', color: 'white', border: 'none', cursor: 'pointer' }}>
-            {lang.player.leaveRoomBtn}
-          </button>
         </div>
-      )}
+      </div>
+    )}
+
+    {isJoined && roomData.status === 'in_progress' && (
+      <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          paddingBottom: '40px'
+        }}>
+          <div style={{
+            backgroundColor: 'white',
+            padding: '40px 20px',
+            borderRadius: '16px',
+            boxShadow: '0 8px 24px rgba(76, 175, 80, 0.2)', 
+            border: '2px solid #4CAF50', 
+            textAlign: 'center',
+            width: '100%',
+            maxWidth: '320px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '30px'        
+          }}>
+            <h2 style={{ margin: 0, color: '#555', fontSize: '20px' }}>
+              {lang.player.yourWord}
+            </h2>
+            <h1 style={{ 
+              fontSize: '48px',
+              margin: 0, 
+              color: '#4CAF50',
+              textTransform: 'uppercase',
+              wordBreak: 'break-word',
+              lineHeight: 1.1 
+            }}>
+              {playerData.current_word || '...'}
+            </h1>
+            <button 
+              onClick={() => leaveRoom(false)} 
+              disabled={isLoading} 
+              style={{ 
+                marginTop: '50px', 
+                padding: '10px', 
+                fontSize: '14px',
+                fontWeight: 'bold', 
+                backgroundColor: 'transparent', 
+                color: '#ff4d4d', 
+                border: '1px solid #ff4d4d', 
+                borderRadius: '8px',
+                cursor: 'pointer'
+              }}
+            >
+              {lang.player.leaveRoomBtn}
+            </button>
+          </div>
+      </div>
+    )}
 
     </div>
   );

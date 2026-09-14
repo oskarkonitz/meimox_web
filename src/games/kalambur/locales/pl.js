@@ -20,11 +20,18 @@ export const pl = {
     errNotEnoughWords: 'Masz za mało słów w puli dla tylu graczy!',
     // NOWE:
     endGameBtn: 'Zakończ grę',
-    restoring: 'Przywracanie sesji...'
+    restoring: 'Przywracanie sesji...',
+    joinGameBtn: 'Dołącz do gry jako gracz',
+    leaveGameBtn: 'Zrezygnuj z grania (bądź tylko hostem)',
+    hostNickPlaceholder: 'Twój nick (np. Host)',
+    playingAs: 'Grasz jako:',
+    yourWord: 'Twoje hasło to:',
+    showWord: 'Pokaż hasło',
+    hideWord: 'Ukryj hasło'
   },
   player: {
     // ... zostaw to co było ...
-    title: 'Dołącz do gry - Kalambury',
+    title: 'Dołącz do gry',
     codeLabel: 'Kod pokoju:',
     codePlaceholder: 'np. ABCD',
     nickLabel: 'Twój Nick:',

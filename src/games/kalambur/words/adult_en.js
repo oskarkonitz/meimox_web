@@ -1,0 +1,22 @@
+export const adult_en = [
+  'Drunk nun', 'Pole dancing', 'Pink vibrator', 'Nude photoshoot', 'Killer hangover', 
+  'Kidney theft', 'Smoking weed', 'Sexy nurse', 'Priest at a strip club', 'Lost panties', 
+  'Hole in condom', 'Drunk husband', 'Cheating with the mailman', 'Poop on the rug', 'Vomiting in a taxi', 
+  'Nighttime play', 'Striptease at a funeral', 'Sex in the car', 'Police raid', 'Blue pill', 
+  'Watching porn', 'Dancing on the table', 'Broken vibrator', 'BDSM', 'Pink handcuffs', 
+  'Whipping', 'Bad Tinder date', 'Sex in the toilet', 'Drunk Santa', 'Too short skirt', 
+  'Neighborhood dealer', 'Torture room', 'Bath in vodka', 'Sex shop', 'Naked neighbor', 
+  'Puking panda', 'Nipple censorship', 'Erotic massage', 'Blow-up doll', 'Jello wrestling', 
+  'Deep cleavage', 'Sugar daddy', 'Hungover vampire', 'Smoking a cigar with a dog', 'Naked guy on the street', 
+  'Peeping Tom with binoculars', 'Stripper in a cake', 'Nude pictures', 'Foot fetish', 'Nudes sent to the boss', 
+  'Office romance', 'Mile high club', 'Drunk surgeon', 'Positive pregnancy test', 'Evil vibrator', 
+  'Obsessed stalker', 'Erotic dream', 'Edible thong', 'Failed threesome', 'Too tight corset', 
+  'Bare ass', 'Sex on the beach', 'Dirty thoughts', 'Lap dance', 'Escaping through the window', 
+  'Flirting at the gym', 'Latex suit', 'Sexy devil', 'Drunken brawl', 'Strip poker', 
+  'Unlucky masseur', 'Shaving accident', 'Walking naked', 'Drunk fairy', 'Tied up boss', 
+  'Sexy maid', 'Dirty dancing', 'Erotic toys', 'Bed handcuffs', 'Love triangle', 
+  'Naked yogi', 'Small orgy', 'Sex with an alien', 'Tight pants', 'French kiss', 
+  'Belly dance', 'Naked mirror selfie', 'Dirty grandpa', 'Bedroom games', 'Sexy policewoman', 
+  'Bath with a vibrator', 'Hot romance', 'Line of cocaine', 'Borat swimsuit', 'Striptease for husband', 
+  'Naked marathon runner', 'Blackout drunk', 'Morning hangover', 'Morning wood', 'Dancing sperm'
+];

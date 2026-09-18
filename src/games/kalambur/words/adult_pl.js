@@ -1,0 +1,22 @@
+export const adult_pl = [
+  'Pijana zakonnica', 'Taniec na rurze', 'Różowy wibrator', 'Naga sesja zdjęciowa', 'Morderczy kac', 
+  'Kradzież nerki', 'Palenie trawki', 'Seksowna pielęgniarka', 'Ksiądz na striptizie', 'Zgubione majtki', 
+  'Dziurawa prezerwatywa', 'Pijany mąż', 'Zdrada z listonoszem', 'Kupa na dywanie', 'Wymioty w taksówce', 
+  'Nocne igraszki', 'Striptiz na pogrzebie', 'Seks w aucie', 'Policyjny nalot', 'Niebieska pigułka', 
+  'Oglądanie porno', 'Taniec na stole', 'Zepsuty wibrator', 'BDSM', 'Różowe kajdanki', 
+  'Biczowanie', 'Pechowa randka z Tindera', 'Seks w toalecie', 'Pijany Mikołaj', 'Za krótka spódniczka', 
+  'Diler z dzielni', 'Pokój tortur', 'Kąpiel w wódce', 'Sex shop', 'Nagi sąsiad', 
+  'Rzygająca panda', 'Cenzura na sutkach', 'Masaż erotyczny', 'Gumowa lala', 'Walka w kisielu', 
+  'Głęboki dekolt', 'Sugar daddy', 'Skacowany wampir', 'Palenie cygara z psem', 'Golas na ulicy', 
+  'Podglądacz z lornetką', 'Striptizer w torcie', 'Nagie zdjęcia', 'Fetysz stóp', 'Nudesy do szefa', 
+  'Romans w biurze', 'Seks w samolocie', 'Pijany chirurg', 'Pozytywny test ciążowy', 'Złowrogi wibrator', 
+  'Zakochany stalker', 'Erotyczny sen', 'Jadalne stringi', 'Nieudany trójkąt', 'Za ciasny gorset', 
+  'Goła dupa', 'Seks na plaży', 'Brudne myśli', 'Taniec na kolanach', 'Ucieczka przez okno', 
+  'Podryw na siłowni', 'Strój z lateksu', 'Seksowny diabeł', 'Pijacka bójka', 'Rozbierany poker', 
+  'Pechowy masażysta', 'Wypadek przy goleniu', 'Chodzenie nago', 'Pijana wróżka', 'Związany szef', 
+  'Seksowna pokojówka', 'Brudny taniec', 'Erotyczne zabawki', 'Łóżkowe kajdanki', 'Trójkąt miłosny', 
+  'Nagi jogin', 'Mała orgia', 'Seks z kosmitą', 'Ciasne spodnie', 'Francuski pocałunek', 
+  'Taniec brzucha', 'Nagie selfie w lustrze', 'Zbereźny dziadek', 'Łóżkowe zabawy', 'Seksowna policjantka', 
+  'Kąpiel z wibratorem', 'Gorący romans', 'Kreska kokainy', 'Kostium Borata', 'Striptiz dla męża', 
+  'Nagi maratończyk', 'Urwany film', 'Ranny kac', 'Poranny wzwód', 'Tańczący plemnik'
+];

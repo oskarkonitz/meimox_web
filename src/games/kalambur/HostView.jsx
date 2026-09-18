@@ -4,6 +4,9 @@ import { pl } from './locales/pl';
 import { en } from './locales/en';
 import { family_pl } from './words/family_pl';
 import { family_en } from './words/family_en';
+import { adult_pl } from './words/adult_pl';
+import { adult_en } from './words/adult_en';
+
 
 // --- FUNKCJE POMOCNICZE ---
 const generateRoomCode = () => {
@@ -23,10 +26,20 @@ const shuffleArray = (array) => {
 };
 
 export default function HostView() {
-  // --- JĘZYK ---
+  // --- JĘZYK I PACZKA ---
   const [langCode, setLangCode] = useState('pl');
   const lang = langCode === 'pl' ? pl : en;
-  const currentWordPack = langCode === 'pl' ? family_pl : family_en;
+  
+  //Stan przechowujący wybraną kategorię
+  const [packType, setPackType] = useState('family'); 
+
+  //Dynamiczne dobieranie paczki na podstawie języka ORAZ kategorii
+  let currentWordPack;
+  if (langCode === 'pl') {
+    currentWordPack = packType === 'family' ? family_pl : adult_pl;
+  } else {
+    currentWordPack = packType === 'family' ? family_en : adult_en;
+  }
 
   // --- STANY ---
   const [roomData, setRoomData] = useState(null);
@@ -384,6 +397,37 @@ export default function HostView() {
                     >
                       {isWordVisible ? lang.host.hideWord : lang.host.showWord}
                     </button>
+                  </div>
+                )}
+
+                {/* --- NOWE: WYBÓR PACZKI SŁÓW --- */}
+                {roomData.status === 'waiting' && (
+                  <div style={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '12px', padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    <label style={{ color: '#cbd5e1', fontSize: '14px', fontWeight: 'bold', textAlign: 'center' }}>
+                      {langCode === 'pl' ? 'Kategoria haseł:' : 'Word Category:'}
+                    </label>
+                    <div style={{ display: 'flex', gap: '10px' }}>
+                      <button
+                        onClick={() => setPackType('family')}
+                        style={{ 
+                          flex: 1, padding: '12px', fontWeight: 'bold', border: 'none', borderRadius: '8px', cursor: 'pointer', transition: '0.2s',
+                          backgroundColor: packType === 'family' ? '#3b82f6' : '#1e293b', 
+                          color: packType === 'family' ? 'white' : '#94a3b8' 
+                        }}
+                      >
+                        👨‍👩‍👧‍👦 Family
+                      </button>
+                      <button
+                        onClick={() => setPackType('adult')}
+                        style={{ 
+                          flex: 1, padding: '12px', fontWeight: 'bold', border: 'none', borderRadius: '8px', cursor: 'pointer', transition: '0.2s',
+                          backgroundColor: packType === 'adult' ? '#ef4444' : '#1e293b', 
+                          color: packType === 'adult' ? 'white' : '#94a3b8' 
+                        }}
+                      >
+                        🌶️ 18+
+                      </button>
+                    </div>
                   </div>
                 )}
 

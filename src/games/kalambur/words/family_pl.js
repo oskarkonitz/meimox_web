@@ -1,3 +1,22 @@
 export const family_pl = [
-  'Pies', 'Kot', 'Słońce', 'Dom', 'Rodzina', 'Spacer', 'Rower', 'Lody', 'Kino', 'Zabawa'
+  'Pies w garniturze', 'Latająca krowa', 'Wąż z nogami', 'Kot strzelający laserami', 'Tańczący słoń', 
+  'Żaba na rowerze', 'Pijany pingwin', 'Owca ninja', 'Kaczka w kosmosie', 'Leniwiec na bieżni', 
+  'Zła pizza', 'Smutny banan', 'Morderczy toster', 'Uciekający hot-dog', 'Płacząca cebula', 
+  'Wąsaty kaktus', 'Ząb z próchnicą', 'Magiczny sedes', 'Zepsuty robot', 'Wybuchający tort', 
+  'Gruby Batman', 'Shrek w dresie', 'Łysy Mikołaj', 'Wampir weganin', 'Yoda w Biedronce', 
+  'Rycerz na hulajnodze', 'Zombie w biurze', 'Babcia z bazooką', 'Ninja z mopem', 'Pikachu na kacu', 
+  'Deszcz żab', 'Płonąca woda', 'Kwadratowe słońce', 'Koniec świata', 'Kosmita na wakacjach', 
+  'Śnieg latem', 'Lewitujące krzesło', 'Dziurawe niebo', 'Zjedzony księżyc', 'Kupa z oczami', 
+  'Rzut beretem', 'Złodziej czasu', 'Kradzież kury', 'Walka na poduszki', 'Upadek z dywanu', 
+  'Jazda na kocie', 'Jedzenie chmur', 'Mycie zębów', 'Spacer po wodzie', 'Wybuchowa niespodzianka',
+  'Płacząca chmura', 'Latający dywan', 'Świnia w błocie', 'Magiczna różdżka', 'Tańczące drzewo',
+  'Gadający kamień', 'Zła marchewka', 'Zupa z muchą', 'Tygrys w wannie', 'Smutny bałwan',
+  'Chomik ninja', 'Krowa na księżycu', 'Pająk w butach', 'Głodny niedźwiedź', 'Śpiewająca ryba',
+  'Kot za kierownicą', 'Wesoła dynia', 'Kaktus z balonem', 'Dziobak z gitarą', 'Kichający smok',
+  'Złodziej ciastek', 'Kret w okularach', 'Mysz z serem', 'Kosmiczny pies', 'Lodowy zamek',
+  'Papuga pirat', 'Różowy słoń', 'Sowa z kawą', 'Rekin z parasolem', 'Żółw na deskorolce',
+  'Leniwiec w biurze', 'Dinozaur na wrotkach', 'Kaczka w kaloszach', 'Niewidzialny człowiek', 'Ośmiornica z herbatą',
+  'Wiewiórka z diamentem', 'Płonący lód', 'Rycerz w dresie', 'Duch w prześcieradle', 'Wilk w owczej skórze',
+  'Wściekły budzik', 'Uśmiechnięta kupa', 'Latający spodek', 'Wielki wybuch', 'Ślepy nietoperz',
+  'Jednorożec z tęczą', 'Wąż w kasku', 'Słoń na trampolinie', 'Złota rybka', 'Zamek z piasku'
 ];

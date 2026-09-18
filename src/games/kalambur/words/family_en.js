@@ -1,3 +1,22 @@
 export const family_en = [
-  'Dog', 'Cat', 'Sun', 'House', 'Family', 'Walk', 'Bike', 'Ice Cream', 'Cinema', 'Fun'
+  'Dog in a suit', 'Flying cow', 'Snake with legs', 'Cat shooting lasers', 'Dancing elephant', 
+  'Frog on a bike', 'Drunk penguin', 'Ninja sheep', 'Duck in space', 'Sloth on a treadmill', 
+  'Evil pizza', 'Sad banana', 'Killer toaster', 'Runaway hot dog', 'Crying onion', 
+  'Cactus with a mustache', 'Decayed tooth', 'Magic toilet', 'Broken robot', 'Exploding cake', 
+  'Fat Batman', 'Shrek in a tracksuit', 'Bald Santa', 'Vegan vampire', 'Yoda in a supermarket', 
+  'Knight on a scooter', 'Zombie in the office', 'Grandma with a bazooka', 'Ninja with a mop', 'Hungover Pikachu', 
+  'Frog rain', 'Burning water', 'Square sun', 'End of the world', 'Alien on vacation', 
+  'Snow in summer', 'Levitating chair', 'Hole in the sky', 'Eaten moon', 'Poop with eyes', 
+  'Throwing a beret', 'Time thief', 'Stealing a chicken', 'Pillow fight', 'Falling off a rug', 
+  'Riding a cat', 'Eating clouds', 'Brushing teeth', 'Walking on water', 'Explosive surprise',
+  'Crying cloud', 'Flying carpet', 'Pig in mud', 'Magic wand', 'Dancing tree',
+  'Talking stone', 'Evil carrot', 'Soup with a fly', 'Tiger in a bathtub', 'Sad snowman',
+  'Ninja hamster', 'Cow on the moon', 'Spider in shoes', 'Hungry bear', 'Singing fish',
+  'Cat driving a car', 'Happy pumpkin', 'Cactus with a balloon', 'Platypus with a guitar', 'Sneezing dragon',
+  'Cookie thief', 'Mole in glasses', 'Mouse with cheese', 'Space dog', 'Ice castle',
+  'Pirate parrot', 'Pink elephant', 'Owl with coffee', 'Shark with an umbrella', 'Turtle on a skateboard',
+  'Sloth in the office', 'Dinosaur on roller skates', 'Duck in rainboots', 'Invisible man', 'Octopus with tea',
+  'Squirrel with a diamond', 'Burning ice', 'Knight in a tracksuit', 'Ghost in a sheet', 'Wolf in sheep\'s clothing',
+  'Angry alarm clock', 'Smiling poop', 'Flying saucer', 'Big bang', 'Blind bat',
+  'Unicorn with a rainbow', 'Snake in a helmet', 'Elephant on a trampoline', 'Goldfish', 'Sandcastle'
 ];

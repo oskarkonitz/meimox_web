@@ -112,7 +112,7 @@ export default function PlayerView() {
 
   return (
     <div style={{ 
-      minHeight: '100vh',       // 100vh (Viewport Height) sprawia, że div zajmuje całą wysokość ekranu.
+      minHeight: '100dvh',       // 100vh (Viewport Height) sprawia, że div zajmuje całą wysokość ekranu.
       backgroundColor: '#2c3139ff', // Delikatne, jasnoszare/niebieskawe tło, żeby nie było ostro biało.
       display: 'flex',          // Uruchamiamy Flexboxa...
       flexDirection: 'column',  // ...i mówimy mu, żeby układał elementy jeden pod drugim (w kolumnie).

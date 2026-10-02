@@ -11,7 +11,7 @@ export default function SummaryView() {
   const [loading, setLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(false);
   
-  const receiptRef = useRef(null); // Ref do ukrytego paragonu
+  const receiptRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -70,31 +70,65 @@ export default function SummaryView() {
     setIsGenerating(true);
     
     try {
-      // Odkrywamy paragon na chwilę
       receiptRef.current.style.display = 'block';
       
       const canvas = await html2canvas(receiptRef.current, {
-        scale: 2, // Lepsza jakość na Retinie/smartfonach
+        scale: 2, 
         backgroundColor: '#ffffff'
       });
       
-      // Chowamy go z powrotem
       receiptRef.current.style.display = 'none';
 
-      // Pobieranie jako obraz
-      const image = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.href = image;
-      link.download = `Raport_${latestAdjustment ? new Date(latestAdjustment.created_at).toLocaleDateString('pl-PL') : 'Pusty'}.png`;
-      link.click();
+      // Zamiast base64, generujemy plik binarny (Blob) do Web Share API
+      canvas.toBlob(async (blob) => {
+        if (!blob) {
+          setIsGenerating(false);
+          return;
+        }
+
+        const fileName = `Raport_${latestAdjustment ? new Date(latestAdjustment.created_at).toLocaleDateString('pl-PL') : 'Pusty'}.png`;
+        const file = new File([blob], fileName, { type: 'image/png' });
+
+        // Funkcja pomocnicza do pobierania pliku (działa niezawodnie na desktopach)
+        const downloadFallback = () => {
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = fileName;
+          // Dodanie linku do DOM jest wymagane w niektórych przeglądarkach (np. Firefox)
+          document.body.appendChild(link); 
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url);
+        };
+
+        // Jeśli przeglądarka (np. Safari na iOS/Android) wspiera udostępnianie plików:
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({
+              files: [file],
+              title: 'Podsumowanie MoneyCount'
+            });
+          } catch (error) {
+            console.log('Udostępnianie anulowane lub nie powiodło się:', error);
+            // Jeśli to nie użytkownik anulował, tylko API nie zadziałało poprawnie, wymuś pobieranie
+            if (error.name !== 'AbortError') {
+              downloadFallback();
+            }
+          }
+        } else {
+          // Fallback dla przeglądarek bez obsługi Web Share API dla plików (komputery)
+          downloadFallback();
+        }
+        setIsGenerating(false);
+      }, 'image/png');
       
     } catch (err) {
       console.error("Błąd generowania paragonu", err);
       alert("Nie udało się wygenerować paragonu.");
       receiptRef.current.style.display = 'none';
+      setIsGenerating(false);
     }
-    
-    setIsGenerating(false);
   };
 
   if (loading) return <div style={{ textAlign: 'center' }}>Ładowanie podsumowania...</div>;
@@ -205,7 +239,7 @@ export default function SummaryView() {
           </Link>
       </div>
 
-      {/* --- UKRYTY PARAGON DO WYGENEROWANIA (Stylizowany na tabelę z obrazka) --- */}
+      {/* --- UKRYTY PARAGON DO WYGENEROWANIA --- */}
       <div 
         ref={receiptRef} 
         style={{ 
@@ -213,7 +247,7 @@ export default function SummaryView() {
           width: '450px', 
           backgroundColor: '#fff', 
           color: '#000', 
-          padding: '20px', 
+          padding: '0', // Poprawka: margines wyzerowany by obraz wypełniał kontener
           fontFamily: 'sans-serif',
           boxSizing: 'border-box'
         }}
@@ -282,8 +316,8 @@ export default function SummaryView() {
           </table>
         </div>
         
-        <div style={{ marginTop: '15px', fontStyle: 'italic', fontSize: '14px', color: '#555' }}>
-          {latestAdjustment?.comment ? `Info: ${latestAdjustment.comment}` : 'Brak uwag.'}
+        <div style={{ padding: '10px', marginTop: '0', fontStyle: 'italic', fontSize: '14px', color: '#555' }}>
+          {latestAdjustment?.comment ? `Uwagi: ${latestAdjustment.comment}` : 'Brak uwag.'}
         </div>
       </div>
 
